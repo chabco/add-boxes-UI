@@ -38,9 +38,13 @@ const pressMe = document.querySelector('.pressMe');
         el.style.left=`${yInput.value}px`;
 
 //add color selection tool
-        let colorpick = document.getElementById("menu");
-        let result = colorpick.options[colorpick.selectedIndex].value;
-        console.log(result);
+        // let colorpick = document.getElementById("menu");
+        // let result = colorpick.options[colorpick.selectedIndex].value;
+        // console.log(result);
+
+//add color input option
+        const colorchoose = document.getElementById('color-input');
+        console.log(colorchoose);
 
 //disallow over extending with feedback
         if (`${xInput.value}` >= 350 || `${yInput.value}` >= 550) {
@@ -49,6 +53,7 @@ const pressMe = document.querySelector('.pressMe');
         } else {
             el.classList.add('box');
             boxContainer.appendChild(el);
-            el.style.backgroundColor = result;
+            // el.style.backgroundColor = result;
+            el.style.backgroundColor = colorchoose.value;
         };
     });
