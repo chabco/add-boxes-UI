@@ -33,9 +33,16 @@ const pressMe = document.querySelector('.pressMe');
 //create function for adding boxes
     pressMe.addEventListener('click', (e) => {
         const el = document.createElement('div');
-        el.classList.add('box');
-        boxContainer.appendChild(el);
 
         el.style.top=`${xInput.value}px`;
         el.style.left=`${yInput.value}px`;
+
+//disallow over extending with feedback
+        if (`${xInput.value}` >= 350 || `${yInput.value}` >= 550) {
+            alert("You are out of bounds! :C");
+            boxContainer.style.backgroundColor = "red";
+        } else {
+            el.classList.add('box');
+            boxContainer.appendChild(el);
+        };
 });
