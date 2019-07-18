@@ -11,7 +11,6 @@ console.log('*********');
  * Have fun!
  ***********************************/
 const boxContainer = document.querySelector('.box-container');
-const boxes = document.querySelectorAll('.box');
 
 // //create box that will be added to the space
 // //create element variable
@@ -42,9 +41,9 @@ const pressMe = document.querySelector('.pressMe');
         // let result = colorpick.options[colorpick.selectedIndex].value;
         // console.log(result);
 
-//add color input option
+//add color input type tool
         const colorchoose = document.getElementById('color-input');
-        console.log(colorchoose);
+        // console.log(colorchoose);
 
 //disallow over extending with feedback
         if (`${xInput.value}` >= 350 || `${yInput.value}` >= 550) {
@@ -53,7 +52,18 @@ const pressMe = document.querySelector('.pressMe');
         } else {
             el.classList.add('box');
             boxContainer.appendChild(el);
+//for color selection tool
             // el.style.backgroundColor = result;
+//for color input tool
             el.style.backgroundColor = colorchoose.value;
+
+
+            let boxes = document.querySelectorAll('.box');
+            //click boxes to remove them
+            const clickable = document.querySelector('.box');
+            console.log(clickable);
+            clickable.addEventListener('click', (e) => {
+                e.target.remove();
+            });
         };
     });
