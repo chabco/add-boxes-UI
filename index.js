@@ -37,6 +37,11 @@ const pressMe = document.querySelector('.pressMe');
         el.style.top=`${xInput.value}px`;
         el.style.left=`${yInput.value}px`;
 
+//add color selection tool
+        let colorpick = document.getElementById("menu");
+        let result = colorpick.options[colorpick.selectedIndex].value;
+        console.log(result);
+
 //disallow over extending with feedback
         if (`${xInput.value}` >= 350 || `${yInput.value}` >= 550) {
             alert("You are out of bounds! :C");
@@ -44,5 +49,6 @@ const pressMe = document.querySelector('.pressMe');
         } else {
             el.classList.add('box');
             boxContainer.appendChild(el);
+            el.style.backgroundColor = result;
         };
-});
+    });
