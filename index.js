@@ -36,6 +36,10 @@ const pressMe = document.querySelector('.pressMe');
         el.style.top=`${xInput.value}px`;
         el.style.left=`${yInput.value}px`;
 
+        // console.log(clickable);
+
+        let boxes = document.querySelector('.box');
+
 //add color selection tool
         // let colorpick = document.getElementById("menu");
         // let result = colorpick.options[colorpick.selectedIndex].value;
@@ -57,13 +61,15 @@ const pressMe = document.querySelector('.pressMe');
 //for color input tool
             el.style.backgroundColor = colorchoose.value;
 
+//click boxes to remove them
+            // el.addEventListener('click', (e) => {
+            //     e.target.remove();
 
-            let boxes = document.querySelectorAll('.box');
-            //click boxes to remove them
-            const clickable = document.querySelector('.box');
-            console.log(clickable);
-            clickable.addEventListener('click', (e) => {
-                e.target.remove();
+            // });
+//make boxes hoverable and then moves to a random location
+            el.addEventListener('mouseover', (e) => {
+                el.style.top= Math.floor(Math.random()*338) +1 +'px'
+                el.style.left = Math.floor(Math.random()*538) +1 +'px'
             });
         };
     });
